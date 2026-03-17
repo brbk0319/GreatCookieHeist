@@ -28,7 +28,7 @@ class Program
 
         foreach (var thief in bestThief)
         {
-            Console.WriteLine($"{thief.Name} stole the most, and had {thief.CookiesEaten} cookies >:)");
+            Console.WriteLine($"{thief.Name} stole the most and had {thief.CookiesEaten} cookies >:)");
         }
     }
 }
