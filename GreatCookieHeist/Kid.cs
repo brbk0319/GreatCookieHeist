@@ -11,22 +11,22 @@ namespace GreatCookieHeist
     {
         public string Name { get; set; }
 
-        public int Delay { get; set; }
         public int CookiesEaten { get; set; }
 
         public Kid() { }
-        public Kid(string name, int delay)
+        public Kid(string name)
         {
             Name = name;
-            Delay = delay;
         }
 
         public async Task GrabCookie()
         {
-            while (CookieJar.NumberOfCookies > 0)
+            Random rndm = new Random();
+            while (true)
             {
-                await Task.Delay(Delay);
-                await CookieJar.TakeCookie(this);
+                await Task.Delay(rndm.Next(100, 700));
+                bool moreCookies = await CookieJar.TakeCookie(this);
+                if (!moreCookies) { break; }
             }
         }
     }

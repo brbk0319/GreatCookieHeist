@@ -5,14 +5,14 @@ class Program
 {
     public static async Task Main()
     {
-        CookieJar.FillCookieJar(15);
+        CookieJar.FillCookieJar(6);
 
         List<Kid> kids = new List<Kid>
         {
-            new Kid("Bob", 1200),
-            new Kid("Alice", 1000),
-            new Kid("Jeff", 900),
-            new Kid("Mary", 1100),
+            new Kid("Bob"),
+            new Kid("Alice"),
+            new Kid("Jeff"),
+            new Kid("Mary"),
         };
         
 
@@ -23,12 +23,12 @@ class Program
         await Task.WhenAll(cookieHeist);
         Console.WriteLine($"aaaaaand they're gone.\nCookies left: {CookieJar.NumberOfCookies}");
 
-        int maxCount = kids.Max(k => k.CookiesEaten);
-        var bestThief = kids.Where(k => k.CookiesEaten == maxCount);
+        //int maxCount = kids.Max(k => k.CookiesEaten);
+        //var bestThief = kids.Where(k => k.CookiesEaten == maxCount);
 
-        foreach (var thief in bestThief)
+        foreach (var k in kids)
         {
-            Console.WriteLine($"{thief.Name} stole the most and had {thief.CookiesEaten} cookies >:)");
+            Console.WriteLine($"{k.Name} stole {k.CookiesEaten} cookies >:)");
         }
     }
 }
